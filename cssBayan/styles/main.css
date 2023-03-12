@@ -1,3 +1,17 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 700px;
+	margin: 0 auto;
+	background-color: #f6f6ec;
+}
+
+.accordion-item {
+	border-top: 1px solid #000;
+}
+
 .accordion-item__label {
 	cursor: pointer;
 }
@@ -12,4 +26,5 @@
 
 .accordion-item__content {
 	display: none;
+	text-align: center;
 }

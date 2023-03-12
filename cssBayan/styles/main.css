@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-	max-width: 700px;
+	max-width: 600px;
 	margin: 0 auto;
 }
 
@@ -37,24 +37,27 @@ body {
 	color: #0059d9;
 	font-size: 1.3rem;
 	font-weight: bold;
+	transition: 0.25s;
 }
 
 .accordion-item__title::before {
 	position: absolute;
 	top: 0; right: 0;
-	display: none;
+	display: flex;
 	content: "\1F7A4";
 	height: 100%;
 	align-items: center;
+	opacity: 0;
+	transition: 0.25s;
 }
 
 .accordion:hover .accordion-item__title::before {
-	display: flex;
+	opacity: 1;
 }
 
 .accordion-item:hover .accordion-item__title::before,
 .accordion-item__input:checked + .accordion-item__label > .accordion-item__title::before {
-	transform: rotate(45deg);
+	transform: rotate(-45deg);
 }
 
 .accordion:hover .accordion-item__title,
@@ -72,7 +75,7 @@ body {
 
 .accordion-item__content {
 	display: none;
-	padding: 1.5rem;
+	padding: 5%;
 	background-color: rgb(119, 119, 119);
 	text-align: center;
 }
@@ -86,14 +89,32 @@ body {
 	filter: brightness(1.2);
 }
 
+.accordion-item__image {
+	height: 200px;
+}
+
 .accordion-item__desc {
 	margin-top: 1rem;
 }
 
 .accordion-item__text {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-weight: bold;
 	text-transform: uppercase;
 	text-shadow: 2px 2px 2px black;
 	color: #FFF;
+}
+
+@media (max-width: 820px) {
+	.container { padding: 2%; }
+	.title { font-size: 1.75rem; }
+	.accordion-item__title { font-size: 1.1rem; }
+	.accordion-item__image { height: 25vw; }
+	.accordion-item__text { font-size: 1.2rem; }
+}
+
+@media (max-width: 320px) {
+	.title { font-size: 1.5rem; }
+	.accordion-item__title { font-size: 0.9rem; }
+	.accordion-item__text { font-size: 1rem; }
 }

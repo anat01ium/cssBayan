@@ -1,3 +1,8 @@
+html,
+body {
+  scrollbar-gutter: stable both-edges;
+}
+
 body {
 	background-color: #f6f6ec;
 	font-family: sans-serif;
@@ -16,7 +21,6 @@ body {
 
 .accordion-item {
 	border-top: 1px solid #d2d9e2;
-	cursor: pointer;
 }
 
 .accordion-item:last-child {
@@ -24,38 +28,42 @@ body {
 }
 
 .accordion-item__label {
-	position: relative;
-	font-size: 1.3rem;
-	font-weight: bold;
-	cursor: inherit;
-}
-
-.accordion-item__label::before {
-	position: absolute;
-	right: 0;
-	display: none;
-	align-items: center;
-	content: "\1F7A4";
-	height: 100%;
-}
-
-.accordion:hover .accordion-item__label::before {
-	display: flex;
-}
-
-.accordion-item:hover .accordion-item__label::before,
-.accordion-item__input:checked + .accordion-item__label::before {
-	transform: rotate(45deg);
+	cursor: pointer;
 }
 
 .accordion-item__title {
+	position: relative;
 	padding: 1rem 0;
 	color: #0059d9;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.accordion-item__title::before {
+	position: absolute;
+	top: 0; right: 0;
+	display: none;
+	content: "\1F7A4";
+	height: 100%;
+	align-items: center;
+}
+
+.accordion:hover .accordion-item__title::before {
+	display: flex;
+}
+
+.accordion-item:hover .accordion-item__title::before,
+.accordion-item__input:checked + .accordion-item__label > .accordion-item__title::before {
+	transform: rotate(45deg);
 }
 
 .accordion:hover .accordion-item__title,
 .accordion-item__input:checked + .accordion-item__label > .accordion-item__title {
 	color: #000;
+}
+
+.accordion-item__label:active > .accordion-item__title {
+	color: #0059d9;
 }
 
 .accordion-item__input {
@@ -70,8 +78,12 @@ body {
 }
 
 .accordion-item:hover .accordion-item__content,
-.accordion-item__input:checked ~ .accordion-item__content {
+.accordion-item__input:checked + .accordion-item__label > .accordion-item__content {
 	display: block;
+}
+
+.accordion-item__input:not(:checked) + .accordion-item__label:active > .accordion-item__content {
+	filter: brightness(1.2);
 }
 
 .accordion-item__desc {

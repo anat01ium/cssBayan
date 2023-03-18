@@ -41,32 +41,14 @@ body {
 }
 
 .accordion-item__title {
-	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: 1rem 0;
 	color: #0059d9;
 	font-size: calc(0.9rem + 0.390625vw);
 	font-weight: bold;
 	transition: 0.25s;
-}
-
-.accordion-item__title::before {
-	position: absolute;
-	top: 0; right: 0;
-	display: flex;
-	content: "\1F7A4";
-	height: 100%;
-	align-items: center;
-	opacity: 0;
-	transition: 0.25s;
-}
-
-.accordion:hover .accordion-item__title::before {
-	opacity: 1;
-}
-
-.accordion-item:hover .accordion-item__title::before,
-.accordion-item__input:checked + .accordion-item__label > .accordion-item__title::before {
-	transform: rotate(-45deg);
 }
 
 .accordion:hover .accordion-item__title,
@@ -76,6 +58,26 @@ body {
 
 .accordion-item__label:active > .accordion-item__title {
 	color: #0059d9;
+}
+
+.accordion-item__icon {
+	width: calc(0.65rem + 0.390625vw);
+	height: calc(0.65rem + 0.390625vw);
+	transition: 0.25s;
+	opacity: 0;
+}
+
+.accordion:hover .accordion-item__icon {
+	opacity: 1;
+}
+
+.accordion-item__label:active > .accordion-item__title > .accordion-item__icon {
+	filter: invert(22%) sepia(86%) saturate(2568%) hue-rotate(208deg) brightness(94%) contrast(103%);
+}
+
+.accordion-item:hover .accordion-item__icon,
+.accordion-item__input:checked + .accordion-item__label > .accordion-item__title > .accordion-item__icon {
+	transform: rotate(180deg);
 }
 
 .accordion-item__input {

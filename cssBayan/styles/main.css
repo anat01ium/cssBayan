@@ -63,7 +63,7 @@ body {
 .accordion-item__icon {
 	width: calc(0.65rem + 0.390625vw);
 	height: calc(0.65rem + 0.390625vw);
-	transition: 0.25s;
+	transition: 0.4s;
 	opacity: 0;
 }
 
@@ -71,7 +71,7 @@ body {
 	opacity: 1;
 }
 
-.accordion-item__label:active > .accordion-item__title > .accordion-item__icon {
+.accordion-item__input:not(:checked) + .accordion-item__label:active > .accordion-item__title > .accordion-item__icon {
 	filter: invert(22%) sepia(86%) saturate(2568%) hue-rotate(208deg) brightness(94%) contrast(103%);
 }
 

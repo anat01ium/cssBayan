@@ -116,7 +116,7 @@ body {
 	text-transform: uppercase;
 	text-shadow: 0.1rem 0.1rem 0.2rem black;
 	color: #FFF;
-	transition: 0.4s;
+	transition: 0.25s ease-in 0.15s;
 }
 
 .accordion-item:hover .accordion-item__content,

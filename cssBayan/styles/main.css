@@ -63,16 +63,20 @@ body {
 .accordion-item__icon {
 	width: calc(0.65rem + 0.390625vw);
 	height: calc(0.65rem + 0.390625vw);
-	transition: 0.4s;
 	opacity: 0;
 }
 
 .accordion:hover .accordion-item__icon {
+	transition: 0.25s;
 	opacity: 1;
 }
 
 .accordion-item__input:not(:checked) + .accordion-item__label:active > .accordion-item__title > .accordion-item__icon {
 	filter: invert(22%) sepia(86%) saturate(2568%) hue-rotate(208deg) brightness(94%) contrast(103%);
+}
+
+.accordion-item:hover .accordion-item__icon {
+	transition: 0.4s;
 }
 
 .accordion-item:hover .accordion-item__icon,
